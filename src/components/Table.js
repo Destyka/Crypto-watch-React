@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TableLine from "./TableLine";
+import ToTop from "./ToTop";
 
 const Table = ({ coinsData }) => {
   const [rangeNumber, setRangeNumber] = useState(100);
@@ -10,6 +11,7 @@ const Table = ({ coinsData }) => {
     "Volume",
     "1h",
     "1j",
+    "1s",
     "1m",
     "6m",
     "1a",
@@ -34,6 +36,7 @@ const Table = ({ coinsData }) => {
             value={rangeNumber}
             onChange={(e) => setRangeNumber(e.target.value)}
           />
+          <ToTop />
         </div>
         {tableHeader.map((el) => (
           <li key={el}>
