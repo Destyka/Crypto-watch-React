@@ -7,6 +7,7 @@ const Table = ({ coinsData }) => {
   const [rangeNumber, setRangeNumber] = useState(100);
   const [orderBy, setOrderBy] = useState("");
   const showStable = useSelector((state) => state.stableReducer);
+  const showList = useSelector((state) => state.listReducer);
 
   const tableHeader = [
     "Prix",
@@ -94,7 +95,16 @@ const Table = ({ coinsData }) => {
       {coinsData &&
         coinsData
           .slice(0, rangeNumber)
-          // eslint-disable-next-line array-callback-return
+          .filter((coin) => {
+            if (showList) {
+              let list = window.localStorage.coinList.split(",");
+              if (list.includes(coin.id)) {
+                return coin;
+              }
+            } else {
+              return coin;
+            }
+          })
           .filter((coin) => {
             if (showStable) {
               return coin;

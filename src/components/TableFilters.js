@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setStableState } from "../actions/stable.action";
 import { setListDisplay } from "../actions/list.action";
+import { setStableState } from "../actions/stable.action";
 
 const TableFilters = () => {
   const [showStable, setShowStable] = useState(true);
